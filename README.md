@@ -20,14 +20,7 @@ As at September 2016.
 5. Should work on any platform supporting Python3 and the Paho-Mqtt library.
 
 
-# Library Support
-
-1. Paho-MQTT
-    * pip3 install paho-mqtt
-2. Open Weather Map for Virtual Weather HAT
-    * pip3 pyowm
-
-# Installation
+# Smart Building Sample Installation
 
 Easiest way is to git clone the solution.
 
@@ -39,22 +32,25 @@ then change to the iothub directory.
 
     cd iothub
 
-On Windows run
+# Required pip3 Package Installation
 
-    install_libraries.bat to install the required pip3 libraries
+The following libraries are required.
 
-On Raspberry Pi run
+1. Paho-MQTT - Mqtt Support
+2. Open Weather Map for Virtual Weather HAT
 
-    ./setup.sh
 
-This will also setup the solution to autorun at startup
 
-This also 
+## On Raspberry Pi Rasbian and Ubuntu/Linux
 
-On Apple Mac
+    sudo pip3 install pyowm
+    sudo pip3 install paho-mqtt
+
+## On Windows and MacOS
 
     pip3 install pyowm
     pip3 install paho-mqtt
+
 
 
 
@@ -73,12 +69,12 @@ Pass in a configuration .json file at run time.
 example sensor_envirophat.json
 
     {
-    "IotHubAddress":"YourIoTHub.azure-devices.net",
-    "DeviceId":"pizero",
-    "SharedAccessKey":"uJ21qp9LUvjkohipkXycvb7RoYwmUDE+4gXyIYS00feZg=",
-    "SensorModule":"sensor_envirophat",
-    "OpenWeatherMapApiKey":"c2044448a2f55555925f27b9e21296dd",
-    "OpenWeatherMapLocationId":"Melbourne, AU"
+        "IotHubAddress":"YourIoTHub.azure-devices.net",
+        "DeviceId":"pizero",
+        "SharedAccessKey":"uJ21qp9LUvjkohipkXycvb7RoYwmUDE+4gXyIYS00feZg=",
+        "SensorModule":"sensor_envirophat",
+        "OpenWeatherMapApiKey":"c2044448a2f55555925f27b9e21296dd",
+        "OpenWeatherMapLocationId":"Melbourne, AU"
     }
 
 ## Startup example
