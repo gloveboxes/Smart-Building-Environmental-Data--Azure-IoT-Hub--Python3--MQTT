@@ -19,9 +19,19 @@ As at September 2016.
     * Raspberry Pi 3
 5. Should work on any platform supporting Python3 and the Paho-Mqtt library.
 
+
+# Library Support
+
+1. Paho-MQTT
+    * pip3 install paho-mqtt
+2. Open Weather Map for Virtual Weather HAT
+    * pip3 pyowm
+
 # Installation
 
 Easiest way is to git clone the solution.
+
+Before cloning the solution be sure to change to your preferred github directory.
 
         git clone https://github.com/gloveboxes/Smart-Building-Environmental-Data--Azure-IoT-Hub--Python3--MQTT.git iothub
 
@@ -47,12 +57,6 @@ On Apple Mac
     pip3 install paho-mqtt
 
 
-# Library Support
-
-1. Paho-MQTT
-    * pip3 install paho-mqtt
-2. Open Weather Map for Virtual Weather HAT
-    * pip3 pyowm
 
 # Raspberry Pi HATS
 
