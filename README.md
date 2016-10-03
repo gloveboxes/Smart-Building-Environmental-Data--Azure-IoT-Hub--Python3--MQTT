@@ -23,7 +23,7 @@ As at September 2016.
 
 Easiest way is to git clone the solution.
 
-        git clone https://github.com/gloveboxes/Azure-IoT-Hub-with-Python-and-MQTT.git iothub
+        git clone https://github.com/gloveboxes/Smart-Building-Environmental-Data--Azure-IoT-Hub--Python3--MQTT.git iothub
 
 then change to the iothub directory.
 
