@@ -5,9 +5,9 @@ sleep 10
 
 sudo killall python3
 
-cd /home/pi/iothub/weather_mqtt
+cd /home/pi/iothub/smartbuilding
 
-python3 weather_mqtt.py config_openweather.json&
-#python3 weather_mqtt.py config_envirophat.json&
-#python3 weather_mqtt.py config_sensehat.json&
+python3 environment.py config_openweather.json&
+#python3 environment.py config_envirophat.json&
+#python3 environment.py config_sensehat.json&
 
