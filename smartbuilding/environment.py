@@ -27,6 +27,8 @@ def on_disconnect(client, userdata, rc):
 
 def on_message(client, userdata, msg):
     print("{0} - {1} ".format(msg.topic, str(msg.payload)))
+    cfg.sampleRateInSeconds = msg.payload
+    print(cfg.sampleRateInSeconds)
     # Do this only if you want to send a reply message every time you receive one
     # client.publish("devices/mqtt/messages/events", "REPLY", qos=1)
 
@@ -37,7 +39,7 @@ def publish():
     while True:
         try:
             client.publish(iot.hubTopicPublish, mysensor.measure())            
-            time.sleep(4)
+            time.sleep(cfg.sampleRateInSeconds)
         
         except KeyboardInterrupt:
             print("IoTHubClient sample stopped")
@@ -63,11 +65,15 @@ client.on_disconnect = on_disconnect
 client.on_message = on_message
 client.on_publish = on_publish
 
-client.username_pw_set(iot.hubUser, iot.generate_sas_token())
+#cfg.iotHubMode = False
 
-#client.tls_set("/etc/ssl/certs/ca-certificates.crt") # use builtin cert on Raspbian
-client.tls_set("baltimorebase64.cer") # Baltimore Cybertrust Root exported from Windows 10 using certlm.msc in base64 format
-client.connect(cfg.hubAddress, 8883)
+if cfg.iotHubMode:
+    client.username_pw_set(iot.hubUser, iot.generate_sas_token())
+    #client.tls_set("/etc/ssl/certs/ca-certificates.crt") # use builtin cert on Raspbian
+    client.tls_set("baltimorebase64.cer") # Baltimore Cybertrust Root exported from Windows 10 using certlm.msc in base64 format
+    client.connect(cfg.hubAddress, 8883)
+else:
+    client.connect("127.0.0.1") # connect to local mosquitto service for testing purposes
 
 client.loop_start()
 

@@ -2,6 +2,23 @@ import json
 
 class Config():
 
+    @property
+    def sampleRateInSeconds(self):
+        return self._sampleRate
+
+    @sampleRateInSeconds.setter
+    def sampleRateInSeconds(self, value):
+        try:
+            self._sampleRate = float(value)
+
+            if self._sampleRate < 0.5:
+                self._sampleRate = 0.5
+            if self._sampleRate > 1000:
+                self._sampleRate = 1000
+
+        except:
+            self._sampleRate = self._sampleRate
+
     def config_defaults(self):
         print('Loading default config settings')
 
@@ -30,4 +47,6 @@ class Config():
             self.config_defaults()
 
     def __init__(self, configFile):
+        self.sampleRateInSeconds = 10 #set publishing rate in seconds
+        self.iotHubMode = True
         self.config_load(configFile)
