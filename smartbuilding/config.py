@@ -47,6 +47,5 @@ class Config():
             self.config_defaults()
 
     def __init__(self, configFile):
-        self.sampleRateInSeconds = 12 #set publishing rate in seconds. every 12 seconds good for an 8000 msg/day free Azure IoT Hub
-        self.iotHubMode = True
+        self.sampleRateInSeconds = 12 #set publishing rate in seconds. every 12 seconds (5 times a minute) good for an 8000 msg/day free Azure IoT Hub
         self.config_load(configFile)

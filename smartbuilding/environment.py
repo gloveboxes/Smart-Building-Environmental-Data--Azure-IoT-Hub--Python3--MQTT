@@ -17,6 +17,8 @@ import sys
 import json
 import config
 
+iotHubMode = True
+
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code: %s" % rc)
@@ -65,9 +67,8 @@ client.on_disconnect = on_disconnect
 client.on_message = on_message
 client.on_publish = on_publish
 
-#cfg.iotHubMode = False
 
-if cfg.iotHubMode:
+if iotHubMode:
     client.username_pw_set(iot.hubUser, iot.generate_sas_token())
     #client.tls_set("/etc/ssl/certs/ca-certificates.crt") # use builtin cert on Raspbian
     client.tls_set("baltimorebase64.cer") # Baltimore Cybertrust Root exported from Windows 10 using certlm.msc in base64 format
