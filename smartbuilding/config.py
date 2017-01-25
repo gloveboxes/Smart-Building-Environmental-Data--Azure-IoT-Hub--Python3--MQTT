@@ -11,10 +11,10 @@ class Config():
         try:
             self._sampleRate = float(value)
 
-            if self._sampleRate < 0.5:
-                self._sampleRate = 0.5
-            if self._sampleRate > 1000:
-                self._sampleRate = 1000
+            if self._sampleRate < 0.1:
+                self._sampleRate = 0.1
+            if self._sampleRate > 100000:
+                self._sampleRate = 100000
 
         except:
             self._sampleRate = self._sampleRate
@@ -47,6 +47,6 @@ class Config():
             self.config_defaults()
 
     def __init__(self, configFile):
-        self.sampleRateInSeconds = 10 #set publishing rate in seconds
+        self.sampleRateInSeconds = 12 #set publishing rate in seconds. every 12 seconds good for an 8000 msg/day free Azure IoT Hub
         self.iotHubMode = True
         self.config_load(configFile)

@@ -26,9 +26,8 @@ def on_disconnect(client, userdata, rc):
     client.username_pw_set(iot.hubUser, iot.generate_sas_token(iot.endpoint, iot.sharedAccessKey))
 
 def on_message(client, userdata, msg):
-    print("{0} - {1} ".format(msg.topic, str(msg.payload)))
+    #print("{0} - {1} ".format(msg.topic, str(msg.payload)))
     cfg.sampleRateInSeconds = msg.payload
-    print(cfg.sampleRateInSeconds)
     # Do this only if you want to send a reply message every time you receive one
     # client.publish("devices/mqtt/messages/events", "REPLY", qos=1)
 
@@ -73,7 +72,7 @@ if cfg.iotHubMode:
     client.tls_set("baltimorebase64.cer") # Baltimore Cybertrust Root exported from Windows 10 using certlm.msc in base64 format
     client.connect(cfg.hubAddress, 8883)
 else:
-    client.connect("127.0.0.1") # connect to local mosquitto service for testing purposes
+    client.connect("localhost") # connect to local mosquitto service for testing purposes
 
 client.loop_start()
 
