@@ -10,6 +10,7 @@
 # pip3 install pyowm
 
 import paho.mqtt.client as mqtt
+from datetime import datetime
 import time
 import iothub
 import sys
@@ -32,7 +33,7 @@ def on_message(client, userdata, msg):
     # client.publish("devices/mqtt/messages/events", "REPLY", qos=1)
 
 def on_publish(client, userdata, mid):
-    print("Message {0} sent from {1}".format(str(mid), cfg.deviceId))
+    print("Message {0} sent from {1} at {2}".format(str(mid), cfg.deviceId, datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
 
 def publish():
     while True:
