@@ -4,6 +4,8 @@ This cross platform Python3 code sample demonstrates how to stream data to Azure
 
 As at September 2016.
 
+Also see [Device to Cloud Python Sample](https://github.com/Azure-Samples/iot-hub-python-get-started/blob/master/Python/device/d2cMsgSender.py)
+
 ## Language: Python3
 
 ## Tested Platforms
